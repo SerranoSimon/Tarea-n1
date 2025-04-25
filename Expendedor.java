@@ -4,6 +4,7 @@ public class Expendedor {
     private DepositoGenerico<Producto> fanta;
     private DepositoGenerico<Producto> snickers;
     private DepositoGenerico<Producto> super8;
+    private DepositoGenerico<Moneda> Monvu;
     public Expendedor(int numProductos){
         this.coca=new DepositoGenerico<>();
         this.sprite=new DepositoGenerico<>();
