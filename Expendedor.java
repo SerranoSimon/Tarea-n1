@@ -1,15 +1,15 @@
 public class Expendedor {
-    private Deposito coca;
-    private Deposito sprite;
-    private Deposito fanta;
-    private Deposito snickers;
-    private Deposito super8;
+    private DepositoGenerico<Producto> coca;
+    private DepositoGenerico<Producto> sprite;
+    private DepositoGenerico<Producto> fanta;
+    private DepositoGenerico<Producto> snickers;
+    private DepositoGenerico<Producto> super8;
     public Expendedor(int numProductos){
-        this.coca=new Deposito();
-        this.sprite=new Deposito();
-        this.fanta=new Deposito();
-        this.snickers=new Deposito();
-        this.super8=new Deposito();
+        this.coca=new DepositoGenerico<>();
+        this.sprite=new DepositoGenerico<>();
+        this.fanta=new DepositoGenerico<>();
+        this.snickers=new DepositoGenerico<>();
+        this.super8=new DepositoGenerico<>();
         for(int i=0; i<numProductos;i++){
             Cocacola b1=new Cocacola(100+i);
             Sprite b2=new Sprite(200+i);
