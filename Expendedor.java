@@ -4,13 +4,14 @@ public class Expendedor {
     private DepositoGenerico<Producto> fanta;
     private DepositoGenerico<Producto> snickers;
     private DepositoGenerico<Producto> super8;
-    private DepositoGenerico<Moneda> Monvu;
+    private DepositoGenerico<Moneda> MonVu;
     public Expendedor(int numProductos){
         this.coca=new DepositoGenerico<>();
         this.sprite=new DepositoGenerico<>();
         this.fanta=new DepositoGenerico<>();
         this.snickers=new DepositoGenerico<>();
         this.super8=new DepositoGenerico<>();
+        this.MonVu=new DepositoGenerico<>();
         for(int i=0; i<numProductos;i++){
             Cocacola b1=new Cocacola(100+i);
             Sprite b2=new Sprite(200+i);
@@ -24,5 +25,47 @@ public class Expendedor {
             super8.add(e2);
 
         }
+    }
+    private DepositoGenerico<Producto> getDeposito(Productos producto){
+        return switch (producto) {
+            case COCACOLA -> coca;
+            case SPRITE -> sprite;
+            case FANTA -> fanta;
+            case SUPER8 -> super8;
+            case SNICKERS -> snickers;
+        };
+    }
+    public Producto comprarProducto(Moneda m, int cual) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
+
+            Productos [] productosArr= Productos.values();
+            Productos seleccion=productosArr[cual];
+            if(m==null){
+                throw new PagoIncorrectoException("Pago incorrecto, moneda nula");
+            }
+            if(cual> productosArr.length||cual<0||getDeposito(seleccion).get()==null){
+                MonVu.add(m);
+                throw new NoHayProductoException("Compra invalida, numero de depósito erróneo o deposito vacío");
+            }
+            if(seleccion.getPrecioProducto()> m.getValor()){
+                MonVu.add(m);
+                throw new PagoInsuficienteException("Pago insuficiente");
+            }
+            int v= m.getValor() -seleccion.getPrecioProducto();
+            while (v > 0) {
+                Moneda aux = new Moneda100();
+                MonVu.add(aux);
+                v -= 100;
+            }
+            return switch (seleccion) {
+                case FANTA -> fanta.get();
+                case SPRITE -> sprite.get();
+                case COCACOLA -> coca.get();
+                case SNICKERS -> snickers.get();
+                case SUPER8 -> super8.get();
+            };
+
+
+
+
     }
 }
