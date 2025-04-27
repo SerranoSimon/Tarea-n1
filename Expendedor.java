@@ -50,11 +50,11 @@ public class Expendedor {
                 MonVu.add(m);
                 throw new PagoInsuficienteException("Pago insuficiente");
             }
-            int v= m.getValor() -seleccion.getPrecioProducto();
-            while (v > 0) {
+            int vuelto= m.getValor() -seleccion.getPrecioProducto();
+            while (vuelto > 0) {
                 Moneda aux = new Moneda100();
                 MonVu.add(aux);
-                v -= 100;
+                vuelto -= 100;
             }
             return switch (seleccion) {
                 case FANTA -> fanta.get();
