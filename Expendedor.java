@@ -45,7 +45,7 @@ public class Expendedor {
             if(m==null){
                 throw new PagoIncorrectoException("Pago incorrecto, moneda nula");
             }
-            if(cual> productosArr.length||cual<0||getDeposito(seleccion).get()==null){
+            if(cual>= productosArr.length||cual<0||getDeposito(seleccion).getArr().size()==0){
                 MonVu.add(m);
                 throw new NoHayProductoException("Compra invalida, numero de depósito erróneo o deposito vacío");
             }
