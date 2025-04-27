@@ -35,7 +35,7 @@ public class Expendedor {
             case SNICKERS -> snickers;
         };
     }
-    private Moneda getVuelto(){
+    public Moneda getVuelto(){
         return MonVu.get();
     }
     public Producto comprarProducto(Moneda m, int cual) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
