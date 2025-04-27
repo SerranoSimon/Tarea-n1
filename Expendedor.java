@@ -43,11 +43,15 @@ public class Expendedor {
             Productos [] productosArr= Productos.values();
             Productos seleccion=productosArr[cual];
             if(m==null){
-                throw new PagoIncorrectoException("Pago incorrecto, moneda nula");
+                throw new PagoIncorrectoException("Moneda nula");
             }
-            if(cual> productosArr.length||cual<0||getDeposito(seleccion).get()==null){
+            if(cual>= productosArr.length||cual<0){
                 MonVu.add(m);
-                throw new NoHayProductoException("Compra invalida, numero de depósito erróneo o deposito vacío");
+                throw new NoHayProductoException("numero de depósito erróneo");
+            }
+            if(getDeposito(seleccion).getArr().size()==0){
+                MonVu.add(m);
+                throw new NoHayProductoException("producto agotado");
             }
             if(seleccion.getPrecioProducto()> m.getValor()){
                 MonVu.add(m);
