@@ -1,13 +1,21 @@
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class mainEstatico {
     public static void main(String[] args) throws NoHayProductoException, PagoInsuficienteException, PagoIncorrectoException {
+        ArrayList<Moneda> mArr= new ArrayList<>();
+        mArr.add(new Moneda100());
+        mArr.add(new Moneda1000());
+        mArr.add(new Moneda500());
+
+        Collections.sort(mArr);
+        System.out.println(mArr);
         //CASO EXITOSO:
 
         System.out.println("Caso exitoso:");
-        Moneda m=new Moneda1000();
         Expendedor exp1=new Expendedor(1);
         for(int i=0;i<5;i++){
-            Comprador c= new Comprador(m,i,exp1);
+            Comprador c= new Comprador(mArr.get(2), i,exp1);
             System.out.println("Compra "+(1+i)+":"+" consumiste "+c.queConsumiste()+", y tu vuelto es "+c.cuantoVuelto());
         }
 
@@ -15,10 +23,9 @@ public class mainEstatico {
         System.out.println("");
         System.out.println("Caso producto agotado: ");
         try{
-            Moneda m1=new Moneda1000();
             Expendedor exp2=new Expendedor(1);
-            Comprador c1= new Comprador(m1,0,exp2);
-            Comprador c2=new Comprador(m1,0,exp2);
+            Comprador c1= new Comprador(mArr.get(2),0,exp2);
+            Comprador c2=new Comprador(mArr.get(2),0,exp2);
         }
         catch(NoHayProductoException e){
             System.out.println("Tipo de error: " + e.getMessage());
@@ -29,9 +36,7 @@ public class mainEstatico {
         System.out.println("");
         System.out.println("Caso moneda nula: ");
         try {
-            Moneda m1=null;
-            Expendedor exp2=new Expendedor(3);
-            Comprador c=new Comprador(m1,0,exp2);
+            Comprador c=new Comprador(null,0,new Expendedor(1));
             System.out.println(c.queConsumiste());
 
         } catch (PagoIncorrectoException e) {
@@ -41,8 +46,7 @@ public class mainEstatico {
         System.out.println("");
         System.out.println("Caso pago insuficiente: ");
         try{
-            Moneda m2=new Moneda100();
-            Comprador c= new Comprador(m2,3,new Expendedor(1));
+            Comprador c= new Comprador(mArr.get(0),3,new Expendedor(1));
             System.out.println(c.queConsumiste());
         }
         catch (PagoInsuficienteException e){
