@@ -2,7 +2,7 @@ public class Comprador {
     private String consumido;
     private int vuelto;
 
-    public Comprador(Moneda m, Productos prod, Expendedor exp) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException {
+    public Comprador(Moneda m, int prod, Expendedor exp) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException {
         Producto p = exp.comprarProducto(m, prod);
         consumido = p.consumir();
 
