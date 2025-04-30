@@ -1,3 +1,8 @@
+/**
+ * La clase Expendedor actúa como una máquina expendedora que vende bebidas y dulces,
+ * manejando la lógica de la compra validando los pagos y entregando el vuelto en monedas de 100
+ */
+
 public class Expendedor {
     private DepositoGenerico<Producto> coca;
     private DepositoGenerico<Producto> sprite;
@@ -5,6 +10,11 @@ public class Expendedor {
     private DepositoGenerico<Producto> snickers;
     private DepositoGenerico<Producto> super8;
     private DepositoGenerico<Moneda> MonVu;
+
+    /**
+     * El Constructor inicia con una cantidad determinada de cada producto, la misma para todos.
+     * @param numProductos cantidad con la que se carga cada depósito de productos
+     */
     public Expendedor(int numProductos){
         this.coca=new DepositoGenerico<>();
         this.sprite=new DepositoGenerico<>();
@@ -26,6 +36,12 @@ public class Expendedor {
 
         }
     }
+
+    /**
+     *
+     * @param producto Tipo de producto que se busca
+     * @return Deposito del producto deseado
+     */
     private DepositoGenerico<Producto> getDeposito(Productos producto){
         return switch (producto) {
             case COCACOLA -> coca;
@@ -35,9 +51,27 @@ public class Expendedor {
             case SNICKERS -> snickers;
         };
     }
+
+    /**
+     *
+     * @return UNA moneda del depósito de vuelto
+     */
     public Moneda getVuelto(){
         return MonVu.get();
     }
+
+    /**
+     * Metodo encargado de realizar la compra,La valida recibiendo una moneda y la numeracion
+     * del producto deseado considerando las excepciones(Pago insuficiente, No hay producto,
+     * Moneda inválida, elección invalida)
+     *
+     * @param m Moneda con la que se comprará
+     * @param cual Numero que representa la elección del producto
+     * @return El producto deseado
+     * @throws NoHayProductoException Si no queda del producto o hubo una elección invalida
+     * @throws PagoIncorrectoException Si se pagó con una moneda nula
+     * @throws PagoInsuficienteException Si la moneda es de un valor menor al precio del producto
+     */
     public Producto comprarProducto(Moneda m, int cual) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
 
             Productos [] productosArr= Productos.values();
