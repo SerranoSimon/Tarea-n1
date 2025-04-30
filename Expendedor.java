@@ -43,7 +43,7 @@ public class Expendedor {
             Productos [] productosArr= Productos.values();
             if(cual>= productosArr.length||cual<0){
                MonVu.add(m);
-               throw new NoHayProductoException("numero de depósito erróneo");
+               throw new NoHayProductoException("Número de depósito erróneo");
             }
             Productos seleccion=productosArr[cual];
             if(m==null){
@@ -52,7 +52,7 @@ public class Expendedor {
 
             if(getDeposito(seleccion).getArr().size()==0){
                 MonVu.add(m);
-                throw new NoHayProductoException("producto agotado");
+                throw new NoHayProductoException("Producto agotado");
             }
             if(seleccion.getPrecioProducto()> m.getValor()){
                 MonVu.add(m);
