@@ -1,5 +1,6 @@
 /**
- * Bebida Hereda de Producto pero no agrega atributos ni metodos nuevos, es solo para clasificar.
+ * Clase que representa un Bebida y hereda de Producto
+ * no agrega atributos ni metodos nuevos, es solo para clasificar.
  */
 public abstract class Bebida extends Producto {
     /**

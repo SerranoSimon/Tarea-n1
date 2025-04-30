@@ -1,5 +1,5 @@
 /**
- * Super 8 hereda de Dulce
+ * CLase que representa un Super 8 y hereda de Dulce
  */
 public class Super8 extends Dulce{
     /**

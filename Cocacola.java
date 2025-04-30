@@ -1,5 +1,5 @@
 /**
- * CocaCola hereda de Bebida
+ * Clase que representa una CocaCola y hereda de Bebida
  */
 public class Cocacola extends Bebida {
     /**

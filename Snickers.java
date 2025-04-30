@@ -1,5 +1,5 @@
 /**
- * Snickers hereda de Dulce
+ * Clase que representa un Snickers y hereda de Dulce
  */
 public class Snickers extends Dulce{
     /**

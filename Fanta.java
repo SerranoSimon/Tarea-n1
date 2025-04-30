@@ -1,5 +1,5 @@
 /**
- * Fanta hereda de bebida
+ * Clase que representa una Fanta y hereda de bebida
  */
 public class Fanta extends Bebida {
     /**
