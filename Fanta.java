@@ -18,12 +18,4 @@ public class Fanta extends Bebida {
     public String consumir() {
         return "Fanta";
     }
-    /**
-     * Definimos el metodo  getPrecio reescribiendolo
-     * @return el precio de la Fanta
-     */
-    @Override
-    public int getPrecio() {
-        return Productos.FANTA.getPrecioProducto();
-    }
 }

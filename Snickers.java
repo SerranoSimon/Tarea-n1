@@ -18,12 +18,4 @@ public class Snickers extends Dulce{
     public String consumir() {
         return "Snickers";
     }
-    /**
-     * Definimos el metodo  getPrecio reescribiendolo
-     * @return el precio del Snickers
-     */
-    @Override
-    public int getPrecio() {
-        return Productos.SNICKERS.getPrecioProducto();
-    }
 }

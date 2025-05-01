@@ -25,10 +25,4 @@ public abstract class Producto {
      * @return El producto consumido
      */
     public abstract String consumir();
-
-    /**
-     *
-     * @return precio del producto
-     */
-    public abstract int getPrecio();
 }

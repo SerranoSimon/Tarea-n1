@@ -18,12 +18,4 @@ public class Sprite extends Bebida {
     public String consumir() {
         return "Sprite";
     }
-    /**
-     * Definimos el metodo  getPrecio reescribiendolo
-     * @return el precio de la Sprite
-     */
-    @Override
-    public int getPrecio() {
-        return Productos.SPRITE.getPrecioProducto();
-    }
 }

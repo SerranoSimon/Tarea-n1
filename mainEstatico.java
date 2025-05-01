@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,7 +9,7 @@ public class mainEstatico {
         mArr.add(new Moneda100());
         mArr.add(new Moneda1000());
         mArr.add(new Moneda500());
-
+        //Ordenar el Array
         Collections.sort(mArr);
         System.out.println("Array de monedas usando ToString");
         System.out.println(mArr);
@@ -33,6 +34,8 @@ public class mainEstatico {
         System.out.println("Compra 4: Consumiste " + c4.queConsumiste() + " y tu vuelto es $" + c4.cuantoVuelto());
         Comprador c5=new Comprador(mArr.get(2),2,exp1 );
         System.out.println("Compra 5: Consumiste " + c5.queConsumiste() + " y tu vuelto es $" + c5.cuantoVuelto());
+        Expendedor exp10=new Expendedor(1);
+
 
 
 
@@ -96,6 +99,16 @@ public class mainEstatico {
         catch (PagoIncorrectoException | PagoInsuficienteException | NoHayProductoException e) {
             System.out.println("Tipo de error: " + e.getMessage());
         }
+        //Prueba de metodo getSerie()
+        System.out.println("");
+        System.out.println("Prueba de metodo getSerie: ");
+        Expendedor exp2=new Expendedor(2);
+        for(int i=0;i<5;i++){
+            System.out.println(exp2.comprarProducto(new Moneda1000(),i).getSerie());
+            System.out.println(exp2.comprarProducto(new Moneda1000(),i).getSerie());
+
+        }
+
     }
 }
 

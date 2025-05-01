@@ -18,12 +18,4 @@ public class Super8 extends Dulce{
     public String consumir() {
         return "Super8";
     }
-    /**
-     * Definimos el metodo  getPrecio reescribiendolo
-     * @return el precio del Super8
-     */
-    @Override
-    public int getPrecio() {
-        return Productos.SUPER8.getPrecioProducto();
-    }
 }

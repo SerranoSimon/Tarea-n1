@@ -10,7 +10,6 @@ public class Cocacola extends Bebida {
         super(serie);
 
     }
-
     /**
      * Definimos el metodo consumir reescribiendolo
      * @return la bebida que se consumió
@@ -18,14 +17,5 @@ public class Cocacola extends Bebida {
     @Override
     public String consumir() {
         return "Cocacola";
-    }
-
-    /**
-     * Definimos el metodo  getPrecio reescribiendolo
-     * @return el precio de la CocaCola
-     */
-    @Override
-    public int getPrecio() {
-        return Productos.COCACOLA.getPrecioProducto();
     }
 }
