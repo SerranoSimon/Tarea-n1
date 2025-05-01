@@ -1,6 +1,6 @@
 /**
  * Exception que se lanza si el valor de la moneda ingresada es menor al precio del producto.
- * se devuelve la misma moneda.
+ * Se devuelve la misma moneda.
  */
 public class PagoInsuficienteException extends Exception {
     /**
